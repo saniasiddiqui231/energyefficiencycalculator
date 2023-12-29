@@ -1,14 +1,19 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-df = pd.read_csv('solar_data.csv', parse_dates=['timestamp'])
-
 plt.figure(figsize=(10, 6))
-plt.plot(df['timestamp'], df['irradiance'], label='Irradiance')
-plt.plot(df['timestamp'], df['temperature'], label='Temperature')
-plt.plot(df['timestamp'], df['power_output'], label='Power Output')
-plt.xlabel('Timestamp')
-plt.ylabel('Values')
+df=pd.read_csv('solar_data.csv')
+
+#specifying the x and y axes for plotting and sorting the data in ascending
+sdx=pd.read_csv('solar_data.csv', usecols=['Voltage']).sort_values(by='Voltage', ascending=True)
+sdy=pd.read_csv('solar_data.csv', usecols=['Current'])
+
+#plots for visual representaion
+plt.plot(sdx,sdy)
+plt.xlabel('Voltage')
+plt.ylabel('Current')
+plt.show()
+
 plt.legend()
-plt.title('Solar Cell Data Monitoring')
+plt.title('Solar Cell I-V characteristics')
 plt.show()
