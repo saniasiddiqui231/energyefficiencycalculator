@@ -11,11 +11,8 @@ for i in range(0,k):
     power_out=w_speed.loc[i].item()
 
 
-# declaring constant variables and taking inputs from user
+# taking input from user
     
-radius = 30
-wind_density = 1.225
-PI = 3.14
 wind_speed = int(input("Enter the speed of wind: "))
 
 # defining a function calculating efficiency
@@ -25,6 +22,7 @@ def calculate_efficiency(power_out, power_input):
            return efficiency
 
 # constraints of wind_velocity
+
 if wind_speed<3 or wind_speed>20:
       print("Output power is zero at this speed.")
 else:
