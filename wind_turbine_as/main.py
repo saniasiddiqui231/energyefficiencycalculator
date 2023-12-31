@@ -3,9 +3,9 @@ import csv
 
 # reading the csv file
 
-data = pd.read_csv("wind_turbine.csv")
-w_speed=pd.read_csv('wind_turbine.csv', usecols=['Wind speed m/s'])
-p_out=pd.read_csv('wind_turbine.csv', usecols=['output(kW)'])
+data = pd.read_csv("input.csv")
+w_speed=pd.read_csv('input.csv', usecols=['Wind speed m/s'])
+p_out=pd.read_csv('input.csv', usecols=['output(kW)'])
 
 rotor_rad = float(input("Enter the rotor radius (more than 17 meters): "))
 eff_data = []
