@@ -27,5 +27,4 @@ for i in range(0,k):
       
 dict = {'efficiency': eff_data}
 df = pd.DataFrame(dict)
-dr = df.reset_index()
 df.to_csv('output.csv')
