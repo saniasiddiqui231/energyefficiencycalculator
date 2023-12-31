@@ -1,18 +1,20 @@
 import pandas as pd 
 import csv
 
-#opening the csv file
-df=pd.read_csv('solar_data.csv')
+# opening the csv file
+df = pd.read_csv('solar_data.csv')
 
-#specifying the x and y axes for plotting and sorting the data in ascending
-sdx=pd.read_csv('solar_data.csv', usecols=['Voltage']).sort_values(by='Voltage', ascending=True)
-sdy=pd.read_csv('solar_data.csv', usecols=['Current'])
+# specifying the x and y axes for plotting and sorting the data in ascending
 
-#adding a power column in the csv table for calculating maximum power
+sdx = pd.read_csv('solar_data.csv', usecols=['Voltage']).sort_values(by='Voltage', ascending=True)
+sdy = pd.read_csv('solar_data.csv', usecols=['Current'])
+
+# adding a power column in the csv table for calculating maximum power
+
 df['Power'] = df['Voltage'] * df['Current']
 df.to_csv('solar_data.csv', index=False)
 
-#finding open circuit voltage and short circuit current
+# finding open circuit voltage and short circuit current
 k=len(df)
 for i in range(0,k):
     if sdx.loc[i].item()==0.0:
@@ -20,7 +22,7 @@ for i in range(0,k):
         break
 for i in range(0,k):
     if sdy.loc[i].item()==0.0:
-        ocv=sdx.loc[i].item()
+        ocv = sdx.loc[i].item()
         break
 
 '''
@@ -36,12 +38,12 @@ which indicates that it's utilizing about 67% of its theoretical potential to pr
 
 '''
 
-fill_factor=(df['Power'].max()/(ssc*ocv))
+fill_factor = (df['Power'].max()/(ssc * ocv))
 
-#Taking input power into account for efficiency calculation
-P_in=float(input('enter input power used for readings: '))
+# taking input power into account for efficiency calculation
+P_in = float(input('enter input power used for readings: '))
 
-#calculating efficiency
-efficiency=((ssc*ocv*fill_factor)/P_in)*100
+# calculating efficiency
+efficiency = ((ssc * ocv * fill_factor) / P_in) * 100
 
 print("the fill factor is: ", fill_factor, " and the efficiency is: ", efficiency,"%")
