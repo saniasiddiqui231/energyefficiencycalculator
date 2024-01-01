@@ -33,7 +33,7 @@ def copper_loss():    #calculating the copper loss
 losses=copper_loss()
 power_output = secondary_current * secondary_voltage * df['power_factor']   
 efficiency = ((power_output) / (power_output+losses+iron_losses)) * 100  # calculating the final efficiency
-print(efficiency)
+print(round(efficiency, 2))
 eff_data.append(efficiency)
 
 
