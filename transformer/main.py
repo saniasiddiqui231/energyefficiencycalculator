@@ -3,7 +3,7 @@ import pandas as pd
 
 # reading csv file and taking inputs from user
 
-df=pd.read_csv('transformer1.csv')
+df=pd.read_csv('inputdata.csv')
 eff_data = []
 
 np = int(input("Enter the turns in primary coil: "))
@@ -39,7 +39,7 @@ eff_data.append(efficiency)
 
 dict = {'efficiency': eff_data}
 df = pd.DataFrame(dict)
-df.to_csv('transformer12.csv', index=False)
+df.to_csv('outputdata.csv', index=False)
 
 
 
