@@ -19,7 +19,7 @@ This web app reads data from CSV files, shows you results, and makes graphs to h
 1. Clone the repository
 
 ```bash
- git clone https://github.com/saniasiddiqui231/energyefficiencycalculator.git
+ git clone https://github.com/saniasiddiqui231/energyefficiencycalculator
 
 ```
 
