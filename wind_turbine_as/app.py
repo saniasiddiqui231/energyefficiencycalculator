@@ -1,11 +1,13 @@
 from flask import Flask,render_template,request
 import pandas as pd
+# import matplotlib.pyplot as plt
+from graph import plot_graph
 
 app = Flask(__name__)
 
-input_data = pd.read_csv("wind_turbine_input.csv")
-w_speed=pd.read_csv('wind_turbine_input.csv', usecols=['Wind speed m/s'])
-p_out=pd.read_csv('wind_turbine_input.csv', usecols=['output(kW)'])
+input_data = pd.read_csv("./data/wind_turbine_input.csv")
+w_speed=pd.read_csv('./data/wind_turbine_input.csv', usecols=['Wind speed m/s'])
+p_out=pd.read_csv('./data/wind_turbine_input.csv', usecols=['output(kW)'])
 
 @app.route('/',methods=['GET', 'POST'])
 def rotor_rad():
@@ -30,15 +32,17 @@ def rotor_rad():
         
         dict = {'Efficiency': eff_data}
         df = pd.DataFrame(dict)
-        df.to_csv('wind_turbine_data.csv')
+        df.to_csv('./data/wind_turbine_data.csv')
+        plot_graph()
         
-        data = pd.read_csv('wind_turbine_data.csv')
-        data.reset_index()
-        data.drop(columns="Unnamed: 0", inplace=True)
-        data.index = data.index + 1
+    data = pd.read_csv('./data/wind_turbine_data.csv')
+    data.reset_index()
+    data.drop(columns="Unnamed: 0", inplace=True)
+    data.index = data.index + 1
         
     return render_template('wind_turbine_index.html', tables=[data.to_html()], titles=[''])
-    
 
+
+### Flask
 if __name__ == '__main__':
     app.run(host='localhost', port=int(5000), debug=True)
