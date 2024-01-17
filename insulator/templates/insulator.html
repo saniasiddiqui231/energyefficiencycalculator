@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wind Turbine Efficiency</title>
+</head>
+<body>
+    <h1>Insulator Efficiency</h1>
+    <form method="post">
+        String Voltage: <input name="vString"/>
+        <button type="submit">Submit</button>
+    </form>
+
+    <div align="center">
+        <table>
+            <h1>
+                {% for i in tables %}
+                <h2>{{titles[loop.index]}}</h2>
+                {{i | safe}}
+                {% endfor %}
+            </h1>
+        </table>
+    </div>
+</body>
+</html>
