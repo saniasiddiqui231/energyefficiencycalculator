@@ -2,17 +2,17 @@ import pandas as pd
 import csv
 
 # opening the csv file
-df = pd.read_csv('solar_data.csv')
+df = pd.read_csv('data.csv')
 
 # specifying the x and y axes for plotting and sorting the data in ascending
 
-sdx = pd.read_csv('solar_data.csv', usecols=['Voltage']).sort_values(by='Voltage', ascending=True)
-sdy = pd.read_csv('solar_data.csv', usecols=['Current'])
+sdx = pd.read_csv('data.csv', usecols=['Voltage']).sort_values(by='Voltage', ascending=True)
+sdy = pd.read_csv('data.csv', usecols=['Current'])
 
 # adding a power column in the csv table for calculating maximum power
 
 df['Power'] = df['Voltage'] * df['Current']
-df.to_csv('solar_data.csv', index=False)
+df.to_csv('data.csv', index=False)
 
 # finding open circuit voltage and short circuit current
 k=len(df)
