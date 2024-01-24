@@ -2,6 +2,7 @@ from flask import Flask,render_template,request
 import pandas as pd
 
 app = Flask(__name__)
+
 input_data=pd.read_csv('inputdata.csv')
 secondary_voltage = pd.read_csv('inputdata.csv',usecols=["secondary_voltage(Volts)"])
 secondary_current = pd.read_csv('inputdata.csv',usecols=["secondary_current(Amperes)"])
@@ -11,8 +12,6 @@ power_factor=pd.read_csv('inputdata.csv',usecols=["power_factor"])
 
 @app.route('/',methods=['GET', 'POST'])
 def calc():
-    # data= None
-    # efficiency=None
     if request.method == 'POST':
         np = float(request.form.get('np'))
         ns = float(request.form.get('ns'))

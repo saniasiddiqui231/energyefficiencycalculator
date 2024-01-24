@@ -1,0 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  color: black;
+}
+
+a {
+  text-decoration-line: none;
+}
+
+a:hover {
+  text-decoration-line: underline;
+}
+
+nav {
+  display: flex;
+  padding: 20px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  /* background-color: #8dded2; */
+}
+
+nav ul li {
+  display: inline-block;
+  list-style: none;
+  margin: 10px 20px;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  animation: fadeIn 3s;
+}
+
+nav ul li a {
+  text-decoration: none;
+  position: relative;
+  transition: color 0.5s ease;
+  opacity: 1;
+}
+
+nav ul li a::after {
+  content: "";
+  width: 0;
+  height: 3px;
+  background: #323232;
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  border-radius: 20px;
+  transition: 0.5s;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+nav ul li a:hover {
+  color: #323232;
+  text-decoration: none;
+}
+
+#website-heading {
+  margin-left: 40px;
+  font-family: "Rubik Doodle Shadow", system-ui;
+  font-size: 2rem;
+  color: black;
+  animation: fadeIn 1s;
+  text-decoration: none;
+}

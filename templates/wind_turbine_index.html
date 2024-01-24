@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wind Turbine Efficiency</title>
+  </head>
+  <body>
+    <h1>Wind Turbine Efficiency</h1>
+    <form method="post">
+      Rotor Radius: <input name="rotorRadius" />
+      <button type="submit">Submit</button>
+    </form>
+
+    <div align="center">
+      <table>
+        <h1>
+          {% for i in tables %}
+          <h2>{{titles[loop.index]}}</h2>
+          {{i | safe}} {% endfor %}
+        </h1>
+      </table>
+    </div>
+
+    <h1>Efficiency Graph</h1>
+    <img
+      src="{{ url_for('static', filename='graph.png') }}"
+      alt="Efficiency Graph"
+    />
+  </body>
+</html>
