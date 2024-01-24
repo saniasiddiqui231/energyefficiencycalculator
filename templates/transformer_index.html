@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flask Form Example</title>
+  </head>
+  <body>
+    <h2>Transformer inputs</h2>
+
+    <form method="post">
+      <label for="np">number of turns in primary coil:</label>
+      <input type="text" id="np" name="np" required />
+
+      <br />
+
+      <label for="ns">number of turns in secondary coil:</label>
+      <input type="pns" id="ns" name="ns" required />
+
+      <br />
+
+      <label for="winding_resistance">winding_resistance:</label>
+      <input
+        type="winding_resistance"
+        id="winding_resistance"
+        name="winding_resistance"
+        required
+      />
+
+      <br />
+
+      <label for="coupling_factor">coupling_factor:</label>
+      <input
+        type="coupling_factor"
+        id="coupling_factor"
+        name="coupling_factor"
+        required
+      />
+
+      <br />
+
+      <input type="submit" value="Submit" />
+    </form>
+    <div align="center">
+      <table>
+        <h1>
+          {% for i in tables %}
+          <h2>{{titles[loop.index]}}</h2>
+          {{i | safe}} {% endfor %}
+        </h1>
+      </table>
+    </div>
+  </body>
+</html>
