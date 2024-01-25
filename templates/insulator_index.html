@@ -3,23 +3,89 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Wind Turbine Efficiency</title>
+    <title>Insulator Efficiency</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+      .beautiful-border {
+        border: 5px solid #3498db;
+        border-radius: 15px;
+      }
+      body {
+        background-color: #add8e6; 
+        }  
+        
+        
+        .custom-form input {
+          border: 1px solid #d3d3d3; 
+          }
+        
+        .custom-form input:focus {
+          border: 1px solid #000000; 
+          } 
+    </style>   
   </head>
   <body>
-    <h1>Insulator Efficiency</h1>
-    <form method="post">
-      String Voltage: <input name="vString" />
-      <button type="submit">Submit</button>
-    </form>
-
-    <div align="center">
-      <table>
-        <h1>
-          {% for i in tables %}
-          <h2>{{titles[loop.index]}}</h2>
-          {{i | safe}} {% endfor %}
-        </h1>
-      </table>
+    <div class="container">
+      <div class="text-center mt-1 mb-4">
+        <h2 style="font-family: 'Garamond', serif; font-size: 50px; color:#0000FF; font-weight: bold;">
+          <a href="/" id="website-heading">Energy Efficiency Calculator</a>
+        </h2>
+      </div>
     </div>
+    <ul class="nav nav-pills nav-fill">
+      <li class="nav-item ms-2 me-1">
+        <a class="nav-link " href="/wind_turbine" style="font-family: 'Garamond', serif;font-size: 30px; background-color: #0000FF; color: #000000; font-weight: bold;" >Wind Turbine</a>
+      </li>
+      <li class="nav-item ms-1 me-1">
+        <a class="nav-link " href="/transformer" style="font-family: 'Garamond', serif ;font-size: 30px; background-color: #0000FF; color: #000000; font-weight: bold;">Transformer</a>
+      </li>
+      <li class="nav-item ms-1 me-2">
+        <a class="nav-link " href="/insulator" style="font-family: 'Garamond', serif ;font-size: 30px; background-color: #0000FF; color: #000000; font-weight: bold;">Insulator</a>
+      </li>
+    </ul>
+    <div class="container mt-5">
+      <div class="row justify-content-end">
+        <div class=" text-center col-md-8 ">
+          <h1 class="mb-3 mt-3" style="font-family: 'Garamond', serif ;font-size: 50px;font-weight: bold;">Insulator Efficiency</h1>
+          <form method="post" class="custom-form">
+            <div class="mb-3 text-center">
+              <label for="vString" class="form-label" style="font-family: 'Garamond', serif; color: #0000ff; font-weight: bold; font-size: 30px;">String Voltage:</label>
+              <input type="text" class="form-control " id="vString" name="vString">
+            </div>
+            <div class="text-center">
+            <button type="submit" class="btn btn-success">Submit</button>
+          </form>
+        </div>
+      </div>
+        <div class="col-md-4 ">
+          <img src="https://www.contune-intl.com/wp-content/uploads/2018/06/33KV-pin-composite-insulator.jpg"
+            class="img-fluid rounded beautiful-border" alt="Insulator" style="max-height: 400px;">
+        </div>
+      </div>
+
+    <div class="container mt-5">
+      <div align="center">
+        <div class="col-md-3">
+         <div class="text-center">
+         <h1 class="mb-4" style="font-family: 'Garamond', serif ;font-size: 35px;font-weight: bold;">Efficiency Table</h1>
+          
+            <table class="table table-bordered border-primary">
+              <thead class="table-primary">
+                <tr>
+                  <th colspan="20">
+                    {% for i in tables %}
+                      <h2>{{titles[loop.index]}}</h2>
+                      {{i | safe}} {% endfor %}
+                  </th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    
   </body>
 </html>
