@@ -12,6 +12,8 @@ This web app reads data from CSV files, shows you results, and makes graphs to h
 
 - Python(3.x)
 - Flask(```pip install Flask```)
+- Matplotlib (```pip install matplotlib```)
+- Pandas (```pip install pandas```)
 
 
 ## Installation
